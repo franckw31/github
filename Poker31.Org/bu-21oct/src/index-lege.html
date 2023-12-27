@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <link href="../dist/output.css" rel="stylesheet">
+<style>
+<body {
+margin: 0;
+padding: 0;
+}
+#map {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 20;
+right: 20;
+width: 100%;
+align: center;
+}
+#marker {
+<!-- background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpge'); -->
+background-size: cover;
+width: 67px;
+height: 67px;
+border-radius: 50%;
+position: fixed;
+top: 50px;
+border-right: 250px;
+cursor: pointer;
+}
+.marker {
+<!-- background-image: url('mapbox-icon.png'); -->
+background-size: cover;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+.mapboxgl-popup {
+max-width: 200px;
+}
+.mapboxgl-popup-content {
+text-align: center;
+font-family: 'Open Sans', sans-serif;
+}
+</style>
+</head>
+<body>
+    <div class="flex font-sans">
+        <!-- MAP -->
+        <div class="h-screen w-full" id="map"></div>
+    </div>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNrdzMxIiwiYSI6ImNsbmJqemU5cjA0MDYya3RkczNrMHdqb2wifQ.6NLEMz-lShL80j9QuGW9cA';
+		const symbo = `url(https://placekitten.com/g/100/100/)`;
+        var map = new mapboxgl.Map({
+            container: 'map',
+			style: 'mapbox://styles/franckw31/clnd1m23b03o501qu3x5ab4xk',			
+            center: [1.42056, 43.60842],
+            zoom: 10
+        });
+
+			// create the popup			
+			// create DOM element for the marker
+
+			map.on('load', function () {
+            //place object we will add our events to
+            map.addSource('places',{
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': []								
+                }
+            });
+					
+            //add place object to map
+            
+			map.addLayer({
+                'id': 'places',
+                'type': 'symbol',
+                'source': 'places',
+                'layout': {
+                    'icon-image': '{icon}',
+					'icon-size': 0.25,
+                    'icon-allow-overlap': true
+                }
+            });
+			
+			map.addSource('museums', {
+				type: 'vector',
+				url: 'mapbox://mapbox.2opop9hr'
+			});
+			
+			map.addLayer({
+				'id': 'museums',
+				'type': 'circle',
+				'source': 'museums',
+				'layout': {
+					// Make the layer visible by default.
+					'visibility': 'visible'
+					},
+				'paint': {
+					'circle-radius': 8,
+					'circle-color': 'rgba(55,148,179,1)'
+					},
+				'source-layer': 'museum-cusco'
+				});
+					
+            //Handle popups
+						
+			map.on( 'click','museums', (e) => {
+				const symbo = e.features[0].properties.t2;
+                const coordinates = e.features[0].geometry.coordinates.slice();
+                const description = e.features[0].properties.description ;
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+            new mapboxgl.Popup({ offset: 25 })
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+		    const el = document.createElement('div');
+				el.id = 'marker';	
+				el.style.backgroundImage = `${symbo}`;
+				el.style.width = `100px`;
+				el.style.height = `100px`;
+				el.style.backgroundSize = '100%';
+			new mapboxgl.Marker(el)
+				.setLngLat(coordinates)
+				.setPopup(new mapboxgl.Popup({ offset: 25 }).setLngLat(coordinates).setHTML(description))
+				.addTo(map);			      
+			});
+
+            //Handle pointer styles
+            map.on('mouseenter', 'places', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+            map.on('mouseleave', 'places', () => {
+                map.getCanvas().style.cursor = '';
+            });
+
+            //get our data from php function
+            getAllEvents();
+            });
+
+        function getAllEvents(){
+            $.ajax({
+				url: "sql2map.php",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (eventData) {
+                    console.log(eventData)
+                    map.getSource('places').setData({
+                            'type': 'FeatureCollection',
+                            'features': eventData
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+      
+    </script>
+</body>
+</html>

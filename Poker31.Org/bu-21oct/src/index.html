@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
+    <link href="../dist/output.css" rel="stylesheet">
+<style>
+<body {
+margin: 0;
+padding: 0;
+}
+#map {
+position: absolute;
+top: 0;
+bottom: 0;
+left: 20;
+right: 20;
+width: 100%;
+align: center;
+}
+#marker {
+background-image: url('https://docs.mapbox.com/mapbox-gl-js/assets/washington-monument.jpge');
+background-size: cover;
+width: 67px;
+height: 67px;
+border-radius: 50%;
+cursor: pointer;
+}
+.marker {
+background-image: url('mapbox-icon.png');
+background-size: cover;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+cursor: pointer;
+}
+.mapboxgl-popup {
+max-width: 200px;
+}
+.mapboxgl-popup-content {
+text-align: center;
+font-family: 'Open Sans', sans-serif;
+}
+</style>
+</head>
+
+<body>
+    <div class="flex font-sans">
+        <!-- MAP -->
+        <div class="h-screen w-full" id="map"></div>
+    </div>
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
+
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmNrdzMxIiwiYSI6ImNsbmJqemU5cjA0MDYya3RkczNrMHdqb2wifQ.6NLEMz-lShL80j9QuGW9cA';
+		const symbo = `url(https://placekitten.com/g/100/100/)`;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            //style: 'mapbox://styles/mapbox/streets-v12',
+			//style: 'mapbox://styles/franckw31/clneb4ezo03vk01qxh8sz5dq0',
+			style: 'mapbox://styles/franckw31/clnd1m23b03o501qu3x5ab4xk',
+			
+            center: [1.42056, 43.60842],
+            zoom: 10
+        });
+
+			// create the popup			
+			// create DOM element for the marker
+
+			map.on('load', function () {
+            //place object we will add our events to
+            map.addSource('places',{
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                  //  'features': []
+					'features': [],
+					'properties': {
+						'icon': {
+						'iconUrl': 'https://www.mapbox.com/mapbox.js/assets/images/astronaut2.png',
+						'iconSize': [50, 50], // size of the icon
+						'iconAnchor': [25, 25], // point of the icon which will correspond to marker's location
+						'popupAnchor': [0, -25], // point from which the popup should open relative to the iconAnchor
+					//	'className': 'dot'
+						}
+					}
+					
+					
+					
+					
+					
+					
+					
+                }
+            });
+			
+			
+			
+            //add place object to map
+            
+			map.addLayer({
+                'id': 'places',
+                'type': 'symbol',
+                'source': 'places',
+                'layout': {
+			//		'text-field': ['get', 'description'],
+			//		"icon-image": ["match",["get","name_en"],["Finland","Belarus","United States","Japan","France"],"mapbox-logo",""]
+                    'icon-image': '{icon}',
+			//		'icon-image': '{symbo}',
+					'icon-size': 0.25,
+                    'icon-allow-overlap': true
+                }
+            });
+			map.addLayer({
+				'id': 'urban-areas-fill',
+				'type': 'fill',
+				'source': 'urban-areas',
+				'layout': {},
+				'paint': {
+				'fill-color': '#f08',
+				'fill-opacity': 0.9
+				}
+			});
+			
+			
+            //Handle popups
+            map.on( 'click','places', (e) => {
+				const symbo = e.features[0].properties.t2;
+				const width = e.features[0].properties.t1;
+                const coordinates = e.features[0].geometry.coordinates.slice();				
+                const description = e.features[0].properties.description;
+				const ta1 = e.features[0].properties.t1;
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+           // new mapboxgl.Popup()
+           //     .setLngLat(coordinates)
+           //     .setHTML(description)
+           //     .addTo(map);
+		   const el = document.createElement('div');
+				el.id = 'marker';
+			//	el.style.backgroundImage = `url(https://placekitten.com/g/100/100/)`;
+				el.style.backgroundImage = `${symbo}`;
+				el.style.width = `100px`;
+				el.style.height = `100px`;
+				el.style.backgroundSize = '100%';					
+			new mapboxgl.Marker(el)
+				.setLngLat(coordinates)
+				.setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(description))
+				.addTo(map);			      
+			});
+			
+			
+			
+			map.on( 'click','places', (e) => {
+                const coordinates = e.features[0].geometry.coordinates.slice();
+                const description = e.features[0].properties.description ;
+			//	const label = `${e.features[0].properties.description} (${e.features[0].properties.description})`;
+			    
+            //    const description = e.features[0].properties.description;
+				const ta1 = e.features[0].properties.t1;
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+            }
+            new mapboxgl.Popup({ offset: 25 })
+                .setLngLat(coordinates)
+                .setHTML(description)
+                .addTo(map);
+		   const el = document.createElement('div');
+				el.id = 'marker';
+		//		el.style.backgroundImage = `url(https://placekitten.com/g/100/100/)`;
+		//		el.style.width = `100px`;
+		//		el.style.height = `100px`;
+		//		el.style.backgroundSize = '100%';					
+			new mapboxgl.Marker(el)
+				.setLngLat(coordinates)
+				.setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(description))
+				.addTo(map);			      
+			});
+			
+
+
+//.setHTML(description)
+//.addTo(map);
+
+            //Handle pointer styles
+            map.on('mouseenter', 'places', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+            map.on('mouseleave', 'places', () => {
+                map.getCanvas().style.cursor = '';
+            });
+
+            //get our data from php function
+            getAllEvents();
+        });
+
+		new mapboxgl.Marker(el)
+				.setLngLat(coordinates)
+				.setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(description))
+				.addTo(map);
+
+
+        function getAllEvents(){
+            $.ajax({
+              //  url: "../api/getAllEvents.php",
+				url: "sql2map.php",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (eventData) {
+                    console.log(eventData)
+                    map.getSource('places').setData({
+                            'type': 'FeatureCollection',
+                            'features': eventData
+                    });
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+
+        // Handle form
+        const geocoder = new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+        });
+
+        geocoder.addTo('#geocoder');
+
+        var geocoderResult = {};
+        geocoder.on('result', (e) => {
+            geocoderResult = e.result, null, 2;
+        });
+
+        // Clear results container when search is cleared.
+        geocoder.on('clear', () => {
+            geocoderResult = {};
+        });
+
+
+        function addEvent(){
+            if(geocoderResult=={}){
+                return false;
+            }
+            var postObj = {
+                name:$("#eventName").val(),
+                description:$("#eventDescription").val(),
+                lat:geocoderResult.center[0],
+                lng:geocoderResult.center[1],
+            }
+
+            $.ajax({
+                url: "../api/createEvent.php",
+                type:'POST',
+                data:postObj,
+                dataType: "json",
+                success: function (resp) {
+                    if(resp=='success'){
+                        //reset form & get new data
+                        $("#eventName").val('');
+                        $("#eventDescription").val('');
+                        geocoder.clear();
+                        getAllEvents();
+                    }
+                },
+                error: function (e) {
+                    console.log(e);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

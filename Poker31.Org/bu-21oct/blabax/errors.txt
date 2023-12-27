@@ -1,0 +1,25 @@
+
+2022-12-31 15:01:11 Cannot connect to database.
+2023-01-02 13:17:23 Cannot connect to database.
+2023-01-03 01:49:26 Cannot connect to database.
+2023-01-03 01:49:26 Cannot connect to database.
+2023-01-03 01:50:19 Cannot connect to database.
+2023-01-03 01:50:19 Cannot connect to database.
+2023-01-03 03:42:19 Cannot connect to database.
+2023-01-03 03:42:19 Cannot connect to database.
+2023-01-03 03:42:24 Cannot connect to database.
+2023-01-03 03:42:24 Cannot connect to database.
+2023-01-03 05:55:04 Cannot connect to database.
+2023-01-03 05:55:04 Cannot connect to database.
+2023-01-03 05:55:56 Cannot connect to database.
+2023-01-03 05:55:57 Cannot connect to database.
+2023-01-03 20:05:56 Cannot connect to database.
+2023-01-03 20:06:02 Cannot connect to database.
+2023-01-04 07:09:33 Cannot connect to database.
+2023-01-04 10:34:44 Cannot connect to database.
+2023-01-04 10:42:13 Cannot connect to database.
+2023-01-04 18:55:11 Cannot connect to database.
+2023-01-04 20:02:31 Cannot connect to database.
+2023-01-05 06:24:43 Cannot connect to database.
+2023-01-05 10:47:22 Cannot connect to database.
+2023-01-05 15:50:57 Table 'dbs9649121.blabax_settings' doesn't exist

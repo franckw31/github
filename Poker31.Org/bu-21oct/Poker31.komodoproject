@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" kpf_version="5" name="Poker31.komodoproject">
+<file id="0c2e643b-eed2-448d-a0ac-339e5e249ca4" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="newreserv.php" url="newreserv.php">
+</file>
+<file id="1fc8887d-4a51-4406-86a3-f2a298404529" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="nstyle.css" url="css/nstyle.css">
+</file>
+<file id="468d9ae7-9c94-4239-86be-63ace2963548" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="newinfo.php" url="newinfo.php">
+</file>
+<file id="618fd0e1-0716-4721-94cc-939fb06ff871" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="newhisto.php" url="newhisto.php">
+</file>
+<file id="63b419f4-c900-44b8-9199-762a8f0d73bc" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="config.php" url="config.php">
+</file>
+<file id="6710032c-5c09-4d04-afc6-597da69da216" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="points.php" url="points.php">
+</file>
+<file id="94c7f2f4-3163-4063-9127-b655773ff0ac" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="newresult.php" url="newresult.php">
+</file>
+<file id="99aa8b1e-854a-4b24-96c5-fc1d3ac81839" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="Style.css" url="css/Style.css">
+</file>
+<file id="bccfcae4-1025-4b60-b69b-ef6b1709724b" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="newclas.php" url="newclas.php">
+</file>
+<file id="cb64cb5b-181e-4063-8aad-f3f1c275ea93" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="index.php" url="index.php">
+</file>
+<file id="e3b07962-ce57-4871-8dee-ea1a6244e307" idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" name="newpoints.php" url="newpoints.php">
+</file>
+<preference-set idref="0acfe7db-37d6-405c-8bbd-0e9d8bf20b89" id="project" preftype="project">
+  <long id="codeintel.scanner.max_depth">10</long>
+  <string id="import_exclude_matches">*.*~;*.bak;*.tmp;CVS;.#*;*.pyo;*.pyc;.svn;_svn;.git;.hg;.bzr;*%25*;tmp*.html;.DS_Store;*.swp;*.kpf;*.komodoproject;.komodotools;__pycache__</string>
+  <long id="prefs_version">1</long>
+</preference-set>
+</project>

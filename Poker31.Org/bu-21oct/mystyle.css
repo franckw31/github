@@ -1,0 +1,66 @@
+/* Created by TopStyle Trial - www.topstyle4.com */
+  /*Application  réalisée du 26 au 30 Avril 2020 à N'djaména au Tchad par
+    Targoto Christian
+  contact : ct@chrislink.net / 23560316682
+  */
+body{
+	margin:40px;
+	padding: 1px;
+	background-color: aqua;
+}
+.tab {
+	background-color: gold;
+	border-collapse: collapse;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.tab th,td{
+	padding: 1px;
+}
+.bouton{
+	width: 150px;
+	height: 25px;
+	font-size: 17px;
+	color : white;
+	background-color: black;
+}
+.rougesurblanc{
+/*	background-color: white; */
+	color: red;
+	font-size: 28px;
+}
+.blanc{
+/*	background-color: black; */ 
+	color: white;
+	font-size: 28px;
+}
+.jaune{
+/*	background-color: black; */ 
+	color: gold;
+	font-size: 28px;
+}
+.blanc18{
+/*	background-color: black; */ 
+	color: white;
+	font-size: 18px;
+}
+.bouton2{
+	width: 330px;
+	height: 25px;
+	font-size: 17px;
+	background-color: #7fff00;
+}
+fieldset{
+	width: 50%;
+	border:3px solid black;
+}
+a{
+	color: white;
+	text-decoration: none;
+}
+
+.attente{
+/*	background-color: white; */
+	color: red;
+/*	font-size: 28px; */
+}
