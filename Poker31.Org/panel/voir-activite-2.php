@@ -283,13 +283,9 @@ if (strlen($_SESSION['id'] == 0)) {
     if ($_POST['pause']) {
         $pau = $_POST['pause'];
         $_SESSION['pause'.$id] = $pau;
-        // ?>
-        // <div class='place3-content'> <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop controls></audio></div>
-        // <?php
+        ?><div class='place3-content'> <audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" autoplay loop controls></audio></div><?php
         
-        // echo '<script language="JavaScript" type="text/javascript"> window.location.replace("/panel/blindes.php?uid=64.php"); </script>';
-        ?> <script type="text/javascript">window.location.replace("/panel/blindes.php?uid=<?php echo $id ?>");</script> ; <?php
-
+        // echo '<script language="JavaScript" type="text/javascript"> window.location.replace("/panel/liste-activite.php"); </script>';
         // $sql = mysqli_query($con, "UPDATE `participation` SET `id-membre`='$id_membre',`id-membre-vainqueur`='$id_membre_vainqueur',`id-activite`='$id_activite',`id-siege`='$id_siege',`id-table`='$id_table',`id-challenge`='$id_challenge',`option`='$option',`ordre`='$ordre',`valide`='$valide',`commentaire`='$commentaire',`classement`='$classement',`points`='$points',`gain`='$gain',`ds`= CURRENT_TIMESTAMP,`ip-ins`='1',`ip-mod`='2',`ip-sup`='3' WHERE `participation`.`id-participation` = '$id'");
     }    
     if (($_POST['submit2'])) {
@@ -1417,7 +1413,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                                                                     </div>
                                                                                                 </div>
 
-                                                                                                <!-- <div class="pplayer player-1p pplaying" id="pplayer1p" >
+                                                                                                <div class="pplayer player-1p pplaying" id="pplayer1p" >
                                                                                                     <div class='player player-1p playing' opacity:0.66>
                                                                                                         <div class='place-content' style='color:white' > 
                                                                                                             <a href="modif-horloge.php?act=<?php echo $id;?>&min=-2&sou=http://poker31.org/panel/voir-activite.php?uid=">-2M</a>
@@ -1431,7 +1427,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                                                                             <a href="modif-horloge.php?act=<?php echo $id;?>&min=2&sou=http://poker31.org/panel/voir-activite.php?uid=">+2M</a>
                                                                                                         </div>
                                                                                                     </div>
-                                                                                                </div>      -->
+                                                                                                </div>     
                                                                                                 
                                                                                                 <div class="player player-1p playing" id="player1p" >
                                                                                                     <div class='player player-1p playing' opacity:0.33>
@@ -2510,11 +2506,11 @@ if (strlen($_SESSION['id'] == 0)) {
                                                                                     $enjeu=($rowcount2-$rowcounteli);
                                                                                     if ($enjeu == 0 ) $enjeu=1; else $enjeu= $rowcount2-$rowcounteli;
                                                                                     ?><div class='info5-content '> <?php echo "Stack Moyen : ".($jetons*($rowcount2+$nbr+$nba))/($enjeu)." sur ".($jetons*($rowcount2+$nbr+$nba)) ." = (".$rowcount2."B ) + "." (".$nbr."R ) + "." (".$nba."A )" ?>
-                                                                                </div>
-                                                                                <?php } ?>    
-                                                                                </div>
-                                                                                <div id="t4E"> 
-                                                                                <?php if ($nbt >= '4') { ?>
+                                                                                 </div>
+                                                                                 <?php } ?>    
+                                                                                 </div>
+                                                                                 <div id="t4E"> 
+                                                                                 <?php if ($nbt >= '4') { ?>
                                                                                     <div class="ccontainer-fluid ccontainer-fullw bg-dark-bricky " style="background-color:grey;opacity:1">                                                                                                                                                                        
                                                                                         <?php
                                                                                         $rowcountocc = "0";
@@ -2888,9 +2884,7 @@ if (strlen($_SESSION['id'] == 0)) {
                                                                                                                                                     </tr>
                                                                                                                                                 </thead>
                                                                                                                                                 <tbody>
-                                                                                                                                                    <?php $id = intval($_GET['uid']) ; ?>
                                                                                                                                                     <?php $ret = mysqli_query($con, "SELECT * FROM `participation` WHERE `id-activite` = '$id' ");
-                                                                                                                                                    // echo $id;
                                                                                                                                                     $cnt = 1;
                                                                                                                                                     while ($row = mysqli_fetch_array($ret)) { ?>
                                                                                                                                                         <?php
@@ -3058,8 +3052,6 @@ if (strlen($_SESSION['id'] == 0)) {
                                                     crossorigin="anonymous">
                                                 </script>
                                                 <script src="../js/scripts.js"></script>
-                                                                                <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-            <script src="../js/datatables-simple-demo.js"></script> -->
                                                 <script type="text/javascript" language="javascript">
                                                     
                                                     function afficher1(id) {

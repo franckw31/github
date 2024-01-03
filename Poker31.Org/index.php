@@ -16,7 +16,7 @@ $mdp = $result['password'];
 $codev = $result['CodeV'];
 
 if (isset($_SESSION['login'])) {
-  header("Location: https://poker31.org/indexnav.html");
+  header("Location: https://poker31.org/panel/dashboard.php");
   die();
 }
 include('config.php');
@@ -29,7 +29,7 @@ if (isset($_GET['Verification'])) {
     if ($query) {
       $rowv = mysqli_fetch_assoc($raquet);
 //      header("Location: /panel/dashboard.php?id='{$rowv['id']}'");
-	  header("Location: https://poker31.org/indexnav.html");
+	  header("Location: https://poker31.org/panel/dashboard.php");
     }else{
       header("Location: index.php");
     }
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 		$_SESSION['login']=$row['pseudo'];
 		$_SESSION['id']=$row['id-membre'];
   //    $_SESSION['Email_Session']=$email;
-      header("Location: https://poker31.org/indexnav.html");
+      header("Location: https://poker31.org/panel/dashboard.php");
     }else{$msg = "<div class='alert alert-info'>First Verify Your Account</div>";}
   }else{
     $msg = "<div class='alert alert-danger'>Email or Password is not match</div>";

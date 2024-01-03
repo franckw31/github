@@ -9,15 +9,14 @@ if ($antr == "0") {$antr=""; } else {$antr=" + " . $antr;} ;
 $ecartsecondes1=$arriveesecondes1-$departsecondes;
 if ($ecartsecondes1 < 1)
 { 
-    echo "Terminé";
-    $_SESSION["stop"] = "1";
+    // echo "Terminé";
+    $_SESSION["ante"] = "1";
 
     $_SESSION["bl"]=$_SESSION["bl"]+1;    
 }
 else
 {
-    echo gmdate("i:s",$ecartsecondes1);
-    // echo $ecartsecondes1;
+    echo "Blindes ".$_SESSION["nom".$_SESSION["bl"]];
 }
 
 ?> 

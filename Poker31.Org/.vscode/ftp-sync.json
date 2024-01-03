@@ -1,0 +1,26 @@
+{
+    "remotePath": "./",
+    "host": "access946473409.webspace-data.io",
+    "username": "u110703616",
+    "password": "u110703616",
+    "secure": true,
+    "protocol": "sftp",
+    "uploadOnSave": true,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": ""
+    }
+}

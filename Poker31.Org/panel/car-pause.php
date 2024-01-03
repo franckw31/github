@@ -18,13 +18,13 @@ $ecartsecondes=$arriveesecondes-$departsecondes;
 // $ecartsecondesf=$arriveesecondesf-$departsecondes;
 if ($ecartsecondes < 1)
 { 
-    echo "-".$is." Pause En cours ou passée ";
+    echo " Pause En cours ou passée ";
     $_SESSION["stoppause"] = "1";
     // $_SESSION["bl"]=$_SESSION["bl"]+1;    
 }
 else
 {
-    echo "Pause & Fin des recaves dans : ".gmdate("i",$ecartsecondes)." Min et ".gmdate("s",$ecartsecondes)." Sec ";
+    echo "Pause & Fin des recaves dans : ".gmdate("H",$ecartsecondes)." H et ".gmdate("i",$ecartsecondes)." Min";
 }
 
 ?> 
