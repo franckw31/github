@@ -84,8 +84,24 @@ if (strlen($_SESSION['id'] == 0)) {
                             <div id="contenu">
                                <div id="auCentre">
                                     <?php 
-                                    $id=intval($_GET['uid']); ?>
-                                    <div id="Outils">
+                                    $id=intval($_GET['uid']); 
+
+                                    {?>
+                                    <div id="bMenu">
+                                        <a href="#" id="op1" class="btnnav" onmouseover="afficher1('op1')">Infos</a>
+                                        <a href="#" id="op2" class="btnnav" onmouseover="afficher1('op2')">Inscrits</a>
+                                        <a href="#" id="op3" class="btnnav" onmouseover="afficher1('op3')">Table 1</a>
+                                        <!-- <a href="#" id="t2" class="btnnav" onmouseover="afficher2('t2')">Table 2</a> -->
+                                        <!-- <a href="#" id="t3" class="btnnav" onmouseover="afficher2('t3')">Table 3</a> -->
+                                        <!-- <a href="#" id="t4" class="btnnav" onmouseover="afficher2('t4')">Table 4</a> -->
+                                    </div>
+                                    <?php };
+                                    ?>
+
+                                    <div id="bSection">
+
+
+                                    <div id="op1E">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="container-fluid container-fullw bbg-white">
@@ -221,6 +237,7 @@ if (strlen($_SESSION['id'] == 0)) {
                 </div>
                 <!-- end: BASIC EXAMPLE -->
                 <!-- end: SELECT BOXES -->
+            </div>    
             </div>
             <!-- start: FOOTER -->
             <?php include('include/footer.php'); ?>
@@ -259,6 +276,181 @@ if (strlen($_SESSION['id'] == 0)) {
         </script>
         <!-- end: JavaScript Event Handlers for this page -->
         <!-- end: CLIP-TWO JAVASCRIPTS -->
+        <script type="text/javascript" language="javascript">
+                                                    
+                                                    function afficher1(id) {
+                                                        var leCalque = document.getElementById(id);
+                                                        var leCalqueE = document.getElementById(id + "E");
+
+                                                        document.getElementById("op1E").className = "rubrique bgImg";
+                                                        // document.getElementById("t2E").className = "rubrique bgImg";
+                                                        document.getElementById("op2E").className = "rubrique bgImg";
+                                                        document.getElementById("op3E").className = "rubrique bgImg";
+                                                        // document.getElementById("t3E").className = "rubrique bgImg";
+                                                        // document.getElementById("t4E").className = "rubrique bgImg";
+
+                                                        document.getElementById("op1").className = "btnnav";
+                                                        // document.getElementById("t2").className = "btnnav";
+                                                        document.getElementById("op2").className = "btnnav";
+                                                        document.getElementById("op3").className = "btnnav";
+                                                        // document.getElementById("t3").className = "btnnav";
+                                                        // document.getElementById("t4").className = "btnnav";
+
+                                                        leCalqueE.className += " montrer";
+                                                        leCalque.className = "btnnavA";
+                                                    }
+
+                                                    function afficher2(id) {
+                                                        var leCalque = document.getElementById(id);
+                                                        var leCalqueE = document.getElementById(id + "E");
+
+                                                        document.getElementById("infosE").className = "rubrique bgImg";
+                                                        document.getElementById("t2E").className = "rubrique bgImg";
+                                                        document.getElementById("inscritsE").className = "rubrique bgImg";
+                                                        document.getElementById("t1E").className = "rubrique bgImg";
+                                                        // document.getElementById("t3E").className = "rubrique bgImg";
+                                                        // document.getElementById("t4E").className = "rubrique bgImg";
+
+                                                        document.getElementById("infos").className = "btnnav";
+                                                        document.getElementById("t2").className = "btnnav";
+                                                        document.getElementById("inscrits").className = "btnnav";
+                                                        document.getElementById("t1").className = "btnnav";
+                                                        // document.getElementById("t3").className = "btnnav";
+                                                        // document.getElementById("t4").className = "btnnav";
+
+                                                        leCalqueE.className += " montrer";
+                                                        leCalque.className = "btnnavA";
+                                                    }
+
+                                                    function afficher3(id) {
+                                                        var leCalque = document.getElementById(id);
+                                                        var leCalqueE = document.getElementById(id + "E");
+
+                                                        document.getElementById("infosE").className = "rubrique bgImg";
+                                                        document.getElementById("t2E").className = "rubrique bgImg";
+                                                        document.getElementById("inscritsE").className = "rubrique bgImg";
+                                                        document.getElementById("t1E").className = "rubrique bgImg";
+                                                        document.getElementById("t3E").className = "rubrique bgImg";
+                                                        // document.getElementById("t4E").className = "rubrique bgImg";
+
+                                                        document.getElementById("infos").className = "btnnav";
+                                                        document.getElementById("t2").className = "btnnav";
+                                                        document.getElementById("inscrits").className = "btnnav";
+                                                        document.getElementById("t1").className = "btnnav";
+                                                        document.getElementById("t3").className = "btnnav";
+                                                        // document.getElementById("t4").className = "btnnav";
+
+                                                        leCalqueE.className += " montrer";
+                                                        leCalque.className = "btnnavA";
+                                                    }
+
+                                                    function afficher4(id) {
+                                                        var leCalque = document.getElementById(id);
+                                                        var leCalqueE = document.getElementById(id + "E");
+
+                                                        document.getElementById("infosE").className = "rubrique bgImg";
+                                                        document.getElementById("t2E").className = "rubrique bgImg";
+                                                        document.getElementById("inscritsE").className = "rubrique bgImg";
+                                                        document.getElementById("t1E").className = "rubrique bgImg";
+                                                        document.getElementById("t3E").className = "rubrique bgImg";
+                                                        document.getElementById("t4E").className = "rubrique bgImg";
+
+                                                        document.getElementById("infos").className = "btnnav";
+                                                        document.getElementById("t2").className = "btnnav";
+                                                        document.getElementById("inscrits").className = "btnnav";
+                                                        document.getElementById("t1").className = "btnnav";
+                                                        document.getElementById("t3").className = "btnnav";
+                                                        document.getElementById("t4").className = "btnnav";
+
+
+                                                        leCalqueE.className += " montrer";
+                                                        leCalque.className = "btnnavA";
+                                                    }
+                                                </script>
+                                                <?php
+                                                // $onglet = 'inf';
+                                                $onglet = $_GET['onglet'];
+                                                echo "++".$onglet."++";
+                                                if ($onglet == 'inf') {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                       afficher('infos');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                if($onglet == 'ins') {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher('inscrits');
+                                                    </script>;
+                                                    <?php
+                                                 };
+                                                if ($onglet == '1') {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher('t1');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                if ($onglet == '2') {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher('t2');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                if ($onglet == '3') {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher('t3');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                if ($onglet == '4') {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher('t4');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                if ($onglet == '' AND $nbt == "1") {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher1('t1');
+                                                    </script>;
+                                                    <?php 
+                                                };
+
+                                                if ($onglet == '' AND $nbt == "2") {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher2('t1');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                
+                                                if ($onglet == '' AND $nbt == "3") {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher3('t1');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                if ($onglet == '' AND $nbt == "4") {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher4('t1');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                if ($onglet == '') {
+                                                    ?>
+                                                    <script type="text/javascript" language="javascript">
+                                                        afficher1('op1');
+                                                    </script>;
+                                                    <?php 
+                                                };
+                                                 ?>
     </body>
     </html>
 <?php } ?>

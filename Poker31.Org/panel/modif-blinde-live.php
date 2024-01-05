@@ -16,7 +16,7 @@ $fin=$_POST['fin'];
 $ante=$_POST['ante'];
 $sql=mysqli_query($con,"UPDATE `blindes-live` SET `nom` = '$nom',`id-activite` = '$id_activite', `ante` = '$ante', `duree` = '$duree', `ordre` = '$ordre', `fin` = '$fin' WHERE `id` = '$id';");
 $_SESSION['msg']="blinde MAJ avec succés !!";
-?> <script type="text/javascript">window.location.replace("/panel/blindes.php?uid=<?php echo $id_activite ?>");</script> ; <?php
+?> <script type="text/javascript">window.location.replace("/panel/voir-blindes.php?uid=<?php echo $id_activite ?>");</script> ; <?php
 
 } 
 ?>

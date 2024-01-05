@@ -24,7 +24,9 @@ if ($ecartsecondes < 1)
 }
 else
 {
-    echo "Pause & Fin des recaves dans : ".gmdate("H",$ecartsecondes)." H et ".gmdate("i",$ecartsecondes)." Min";
+    if ($ecartsecondes<36000){
+        echo "Pause & Fin des recaves dans : ".gmdate("H",$ecartsecondes)." H et ".gmdate("i",$ecartsecondes)." Min";
+    }
 }
 
 ?> 

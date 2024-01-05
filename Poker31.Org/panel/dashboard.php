@@ -365,7 +365,7 @@ if (strlen($_SESSION['id'] == 0)) {
 												<!-- <i	class="fa fa-square fa-stack-2x text-primary"></i> -->
 												<!-- <i	class="fa fa-terminal fa-stack-1x fa-inverse"></i> -->
 											</span>
-											<h2 class="StepTitle">Horloge</h2>
+											<h2 class="StepTitle">Blindes</h2>
 
 									</div></a>
 								</div>

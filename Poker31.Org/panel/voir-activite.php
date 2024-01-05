@@ -288,7 +288,7 @@ if (strlen($_SESSION['id'] == 0)) {
         // <?php
         
         // echo '<script language="JavaScript" type="text/javascript"> window.location.replace("/panel/blindes.php?uid=64.php"); </script>';
-        ?> <script type="text/javascript">window.location.replace("/panel/blindes.php?uid=<?php echo $id ?>");</script> ; <?php
+        ?> <script type="text/javascript">window.location.replace("/panel/voir-blindes.php?uid=<?php echo $id ?>");</script> ; <?php
 
         // $sql = mysqli_query($con, "UPDATE `participation` SET `id-membre`='$id_membre',`id-membre-vainqueur`='$id_membre_vainqueur',`id-activite`='$id_activite',`id-siege`='$id_siege',`id-table`='$id_table',`id-challenge`='$id_challenge',`option`='$option',`ordre`='$ordre',`valide`='$valide',`commentaire`='$commentaire',`classement`='$classement',`points`='$points',`gain`='$gain',`ds`= CURRENT_TIMESTAMP,`ip-ins`='1',`ip-mod`='2',`ip-sup`='3' WHERE `participation`.`id-participation` = '$id'");
     }    
